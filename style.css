@@ -1,0 +1,267 @@
+:root {
+  --gb-dark: #0a1d37;
+  --gb-light: #e8f0ff;
+  --gb-accent: #00a0df;
+}
+
+body {
+  background-color: #f5f7fa;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #1a2535;
+}
+
+.navbar {
+  background-color: var(--gb-dark) !important;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+.logo-circle {
+  width: 58px;
+  height: 58px;
+  background: white;
+  border-radius: 50%;
+  padding: 4px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.logo-circle:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.navbar-brand {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-text {
+  font-weight: 700;
+  font-size: 1.45rem;
+  color: white;
+  letter-spacing: -0.5px;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-weight: 500;
+  padding: 0.55rem 1.15rem !important;
+  border-radius: 6px;
+  transition: all 0.22s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+}
+
+.navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+
+
+/* Hero Section */
+
+.hero {
+  background-image: linear-gradient(to bottom, #337ab7, #23527c);
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 0;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  height: 100vh;
+
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.img-fluid {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.team-member {
+  margin-bottom: 20px;
+}
+
+/* Featured Courses Section */
+
+.featured-courses {
+  padding: 5rem 0;
+}
+
+.featured-courses h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.card {
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card:hover {
+   transform: scale(1.05);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Benefits Section */
+
+/* Benefits Cards */
+.benefit-card {
+  transition: all 0.3s ease;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08) !important;
+}
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Testimonials */
+.testimonial-card {
+  border-radius: 16px;
+  transition: all 0.25s ease;
+  background: #fff;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+}
+
+.avatar img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 3px solid #f8f9fa;
+}
+
+/* Optional: star rating if you want to add later */
+.rating {
+  color: #ffc107;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+/* Call-to-Action Section */
+
+.cta {
+  padding: 5rem 0;
+  background-color: #337ab7;
+  color: #fff;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+#contact-form {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#contact-form .form-label {
+  font-weight: bold;
+}
+
+#contact-form .form-control {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#contact-form .btn-primary {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#contact-form .btn-primary:hover {
+  background-color: #444;
+}

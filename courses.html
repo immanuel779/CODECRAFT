@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Courses - Codecraft | Frontend Development Training</title>
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --primary-dark: #0a58ca;
+      --dark: #212529;
+      --gray: #6c757d;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .navbar {
+      background-color: var(--dark);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+
+    .navbar-brand img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+      object-fit: contain;
+    }
+
+    .nav-link {
+      color: white !important;
+      font-weight: 500;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary) !important;
+    }
+
+    .course-hero {
+     background-image: url('coding.jpeg');
+     position: inherit;
+     background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+      padding: 8rem 0 6rem;
+      text-align: center;
+      min-height: 80vh;
+      height: 100vh;
+    }
+
+    .course-card {
+      border: none;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    .course-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    }
+
+    .course-img {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .badge-level {
+      font-size: 0.9rem;
+      padding: 0.5em 1em;
+    }
+
+    .price-tag {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .syllabus-toggle[aria-expanded="true"] .bi-chevron-down {
+      transform: rotate(180deg);
+    }
+
+    .feature-list li {
+      margin-bottom: 0.75rem;
+    }
+
+    footer {
+      background: #111;
+      color: #ccc;
+    }
+
+    footer a:hover {
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid px-4 px-lg-5">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="codecraft logo (2).jpeg" alt="Codecraft Logo">
+        <span class="ms-2 fw-bold text-white">Codecraft</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+        <ul class="navbar-nav align-items-center gap-3 gap-lg-4">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="courses.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-outline-primary rounded-pill px-4 fw-medium" href="https://wa.me/+2347089584607">
+              Get in Touch
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Course Hero -->
+  <section class="course-hero">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-4">Master Frontend Development</h1>
+      <p class="lead fs-4 mb-4 opacity-90">
+        Practical, project-based courses • Lifetime access • 24/7 WhatsApp support • Built for Nigerians ready to land jobs in 2026
+      </p>
+      <a href="courses.html" class="btn btn-light btn-lg px-5 py-3 fw-bold shadow-lg">
+        Explore Courses
+      </a>
+    </div>
+  </section>
+
+  <!-- Courses Grid -->
+  <section id="courses" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">Our Frontend Courses</h2>
+        <p class="lead text-muted">From zero to job-ready — choose your path</p>
+      </div>
+
+      <div class="row g-4 g-lg-5">
+        <!-- Course 1: HTML & CSS Foundations -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card h-100">
+            <img src="html.jpeg" class="course-img card-img-top" alt="HTML & CSS">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="badge bg-success badge-level">Beginner</span>
+                <span class="badge bg-primary badge-level">4-6 Weeks</span>
+              </div>
+              <h4 class="card-title fw-bold mb-3">HTML & CSS Foundations</h4>
+              <p class="text-muted mb-4">
+                Build beautiful, responsive websites from scratch — the perfect starting point.
+              </p>
+
+              <div class="mb-4">
+                <h6 class="fw-bold">What You'll Learn:</h6>
+                <ul class="list-unstyled feature-list small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Semantic HTML5</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>CSS Flexbox & Grid</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Responsive Design & Media Queries</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Modern Styling Best Practices</li>
+                </ul>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="price-tag">₦15,000</span>
+                  <small class="text-muted">/ one-time</small>
+                </div>
+                <a href="https://wa.me/+2347089584607?text=I'm%20interested%20in%20HTML%20%26%20CSS%20Foundations" 
+                   class="btn btn-primary px-4">Enroll Now</a>
+              </div>
+              <div class="mt-3 small text-center text-success fw-medium">
+                Lifetime Access + WhatsApp Support + 3 Projects
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 2: JavaScript Essentials -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card h-100">
+            <img src="javascript.jpeg" class="course-img card-img-top" alt="JavaScript">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="badge bg-warning text-dark badge-level">Beginner → Intermediate</span>
+                <span class="badge bg-primary badge-level">6-8 Weeks</span>
+              </div>
+              <h4 class="card-title fw-bold mb-3">JavaScript Essentials</h4>
+              <p class="text-muted mb-4">
+                Add interactivity, logic & modern features — turn static pages into dynamic apps.
+              </p>
+
+              <div class="mb-4">
+                <h6 class="fw-bold">Key Topics:</h6>
+                <ul class="list-unstyled feature-list small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>ES6+ (arrow functions, destructuring, modules)</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>DOM Manipulation & Events</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Asynchronous JS (Promises, async/await, fetch)</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>API Consumption & Dynamic Content</li>
+                </ul>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="price-tag">₦25,000</span>
+                  <small class="text-muted">/ one-time</small>
+                </div>
+                <a href="https://wa.me/+2347089584607?text=I'm%20interested%20in%20JavaScript%20Essentials" 
+                   class="btn btn-primary px-4">Enroll Now</a>
+              </div>
+              <div class="mt-3 small text-center text-success fw-medium">
+                Lifetime Access + Projects + Community Support
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 3: Modern CSS + Tailwind -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card h-100">
+            <img src="tailwind.jpeg" class="course-img card-img-top" alt="Tailwind CSS">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="badge bg-info text-dark badge-level">Intermediate</span>
+                <span class="badge bg-primary badge-level">4-6 Weeks</span>
+              </div>
+              <h4 class="card-title fw-bold mb-3">Modern CSS & Tailwind Mastery</h4>
+              <p class="text-muted mb-4">
+                Build faster with utility-first CSS — the tool top companies use in 2026.
+              </p>
+
+              <div class="mb-4">
+                <h6 class="fw-bold">Highlights:</h6>
+                <ul class="list-unstyled feature-list small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Advanced CSS (Custom Properties, Animations)</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Tailwind CSS v4 Fundamentals</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Responsive Design Systems</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Component Libraries & Best Practices</li>
+                </ul>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="price-tag">₦22,000</span>
+                  <small class="text-muted">/ one-time</small>
+                </div>
+                <a href="https://wa.me/+2347089584607?text=I'm%20interested%20in%20Modern%20CSS%20%26%20Tailwind" 
+                   class="btn btn-primary px-4">Enroll Now</a>
+              </div>
+              <div class="mt-3 small text-center text-success fw-medium">
+                Lifetime Access + Real-World Projects
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 4: React & Modern Frontend -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card h-100">
+            <img src="React JS Training in Chandigarh.jpeg" class="course-img card-img-top" alt="React" onerror="this.src='https://via.placeholder.com/400x220?text=React'">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="badge bg-danger badge-level">Advanced</span>
+                <span class="badge bg-primary badge-level">8-10 Weeks</span>
+              </div>
+              <h4 class="card-title fw-bold mb-3">React & Modern Frontend</h4>
+              <p class="text-muted mb-4">
+                Build dynamic, scalable apps — the #1 skill for frontend jobs in 2026.
+              </p>
+
+              <div class="mb-4">
+                <h6 class="fw-bold">Core Skills:</h6>
+                <ul class="list-unstyled feature-list small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>React Hooks & Components</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>State Management (Context + Zustand)</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Routing (React Router), API Calls</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Vite + Tailwind + Deployment (Vercel)</li>
+                </ul>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="price-tag">₦45,000</span>
+                  <small class="text-muted">/ one-time</small>
+                </div>
+                <a href="https://wa.me/+2347089584607?text=I'm%20interested%20in%20React%20%26%20Modern%20Frontend" 
+                   class="btn btn-primary px-4">Enroll Now</a>
+              </div>
+              <div class="mt-3 small text-center text-success fw-medium">
+                Lifetime Access + 5+ Portfolio Projects + Support
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+  <div class="course-card h-100">
+    <img src="Bootstrap.jpeg" class="course-img card-img-top" alt="Bootstrap">
+    <div class="card-body p-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="badge bg-warning text-dark badge-level">Beginner → Intermediate</span>
+        <span class="badge bg-primary badge-level">6-8 Weeks</span>
+      </div>
+      <h4 class="card-title fw-bold mb-3">Bootstrap Essentials</h4>
+      <p class="text-muted mb-4">
+        Build beautiful, responsive, mobile-first websites fast — no custom CSS headaches.
+      </p>
+
+      <div class="mb-4">
+        <h6 class="fw-bold">Key Topics:</h6>
+        <ul class="list-unstyled feature-list small">
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i>Bootstrap 5 Grid System & Responsive Layouts</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i>Utility Classes (Spacing, Colors, Display, Flex & More)</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i>Core Components (Buttons, Cards, Navbar, Modals)</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i>Forms, Tables, Alerts, Typography & Icons</li>
+        </ul>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <span class="price-tag">₦25,000</span>
+          <small class="text-muted">/ one-time</small>
+        </div>
+        <a href="https://wa.me/+2347089584607?text=I'm%20interested%20in%20Bootstrap%20Essentials" 
+           class="btn btn-primary px-4">Enroll Now</a>
+      </div>
+      <div class="mt-3 small text-center text-success fw-medium">
+        Lifetime Access + Projects + Community Support
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- Bundle / Full Path -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card h-100 border-primary border-2 position-relative">
+            <div class="position-absolute top-0 end-0 badge bg-warning text-dark m-3 fw-bold">Best Value</div>
+            <img src="fontend.jpeg" class="course-img card-img-top" alt="Full Frontend Path" onerror="this.src='https://via.placeholder.com/400x220?text=Full+Path'">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="badge bg-dark badge-level">Complete Path</span>
+                <span class="badge bg-primary badge-level">4-6 Months</span>
+              </div>
+              <h4 class="card-title fw-bold mb-3">Full Frontend Developer Path</h4>
+              <p class="text-muted mb-4">
+                All courses bundled — HTML/CSS → JS → Tailwind → React → Portfolio + Job Prep.
+              </p>
+
+              <div class="mb-4">
+                <h6 class="fw-bold">Includes Everything Above +:</h6>
+                <ul class="list-unstyled feature-list small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Portfolio Website Project</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Git & GitHub Workflow</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Interview Prep & CV Review</li>
+                </ul>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="price-tag">₦85,000</span>
+                  <small class="text-muted text-decoration-line-through ms-2">₦107,000</small>
+                </div>
+                <a href="https://wa.me/+2347089584607?text=I'm%20interested%20in%20Full%20Frontend%20Developer%20Path" 
+                   class="btn btn-primary px-4">Enroll Now</a>
+              </div>
+              <div class="mt-3 small text-center text-success fw-medium">
+                Save 20% • Lifetime Access • Priority Support
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5 pt-4">
+        <p class="lead mb-4">Not sure where to start? Chat with us for free guidance!</p>
+        <a href="https://wa.me/+2347089584607?text=Hi%20Codecraft!%20I%20need%20help%20choosing%20a%20course." 
+           class="btn btn-outline-primary btn-lg px-5 py-3">
+          <i class="bi bi-whatsapp me-2"></i> Free Course Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (same as previous) -->
+  <footer class="bg-dark text-white py-5">
+    <div class="container px-4 px-lg-5">
+      <div class="row g-5">
+        <div class="col-md-4">
+          <h5 class="fw-bold mb-4">Codecraft</h5>
+          <p class="text-muted">Practical frontend training for Nigerians — start today, build tomorrow.</p>
+        </div>
+        <div class="col-md-2">
+          <h5 class="fw-bold mb-4">Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-reset">Home</a></li>
+            <li><a href="about.html" class="text-reset">About</a></li>
+            <li><a href="courses.html" class="text-reset">Courses</a></li>
+            <li><a href="contact.html" class="text-reset">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="fw-bold mb-4">Contact</h5>
+          <ul class="list-unstyled">
+            <li><i class="bi bi-envelope me-2"></i> codecraft825@gmail.com</li>
+            <li><i class="bi bi-telephone me-2"></i> +234 708 958 4607</li>
+            <li><i class="bi bi-geo-alt me-2"></i> Lagos, Nigeria</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="fw-bold mb-4">Follow</h5>
+          <div class="d-flex gap-4">
+            <a href="https://www.facebook.com/profile.php?id=100084730695859" class="fs-4 text-white"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/codecraft331?igsh=MWNiejVqdW81MHQxZg==" class="fs-4 text-white"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/+2347089584607" class="fs-4 text-white"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <div class="text-center small">
+        © 2026 Codecraft. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
