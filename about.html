@@ -77,36 +77,49 @@
       margin-bottom: 1rem;
     }
 
-    .ceo-card {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+   .ceo-card {
+  background: white;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .ceo-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-    }
+.ceo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+}
 
-    .ceo-img-wrapper {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 6px solid white;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      margin: -90px auto 1.5rem;
-    }
+.ceo-img-wrapper {
+  width: 240px;          /* Adjust this size — 200–280px works well for most profiles */
+  height: 240px;
+  overflow: hidden;
+  border-radius: 50%;    /* Circular look — very common for professional profiles */
+  border: 6px solid #f8f9fa; /* subtle white border for depth */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
 
-    .ceo-img-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-    }
+.ceo-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* Ensures full body is visible — no important parts cut off */
+  object-position: center top; /* Bias toward showing the face/head first */
+  background: #f8f9fa;   /* Light fallback if image has transparency */
+}
 
+/* If your photo is full-body vertical and you prefer rectangular (not circle) */
+.ceo-img-wrapper.rectangle {
+  width: 100%;
+  max-width: 320px;
+  height: 420px;         /* Taller rectangle for full-body portraits */
+  border-radius: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .ceo-img-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+}
     footer {
       background: #111;
       color: #ccc;
@@ -309,3 +322,4 @@
 </body>
 
 </html>
+
