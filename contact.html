@@ -1,221 +1,665 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us - Codecraft</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Contact Codecraft - Get in touch with us for questions about courses, enrollment, or partnership opportunities. We're here to help you start your tech journey.">
+    <meta name="keywords" content="contact Codecraft, frontend training Nigeria, learn coding Lagos, tech education contact">
+    <meta name="author" content="Codecraft">
+    <title>Contact Us | Codecraft - Get in Touch</title>
 
-  <!-- Bootstrap 5.3 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Your custom styles (keep if needed) -->
-  <!-- <link rel="stylesheet" href="style.css"> -->
-  <style>
-    .form-container { max-width: 800px; margin: 0 auto; }
-    .error-message {
-      color: #dc3545;
-      font-size: 0.875rem;
-      margin-top: 0.25rem;
-      display: none;
-    }
-    .is-invalid ~ .error-message { display: block; }
-    .logo-circle img {
-      width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
-    }
-    footer a:hover { color: #0d6efd !important; }
-  </style>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-light">
+<style>
+  /* ==================== CONTACT PAGE STYLES ==================== */
 
-  <!-- Navbar (kept almost same, minor cleanup) -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
-    <div class="container-fluid px-3 px-md-4 px-lg-5">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <div class="logo-circle me-2">
-          <img src="codecraft logo (2).jpeg" alt="Codecraft Logo">
-        </div>
-        <span class="brand-text fw-bold">Codecraft</span>
-      </a>
+/* Contact Header */
+.contact-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 120px 0 60px;
+    text-align: center;
+    color: white;
+}
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+/* Contact Section */
+.contact-section {
+    padding: 80px 0;
+}
 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-        <ul class="navbar-nav align-items-center gap-1 gap-lg-3">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
-          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
-          <li class="nav-item ms-lg-3">
-            <a class="btn btn-outline-light rounded-pill px-4 fw-medium" href="https://wa.me/+2347089584607">
-              Get in Touch
+.contact-info-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    height: 100%;
+    border: 1px solid var(--gray-light);
+}
+
+.contact-info-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.info-text {
+    color: var(--gray);
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.info-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(13, 110, 253, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.info-icon i {
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+
+.info-details h4 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.info-details p {
+    color: var(--gray);
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.info-details a {
+    color: var(--gray);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.info-details a:hover {
+    color: var(--primary);
+}
+
+.social-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--gray-light);
+}
+
+.social-section h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.social-section .social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-section .social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(13, 110, 253, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.social-section .social-links a:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Contact Form Card */
+.contact-form-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-light);
+}
+
+.contact-form-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-text {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+}
+
+.form-label {
+    font-weight: 500;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+}
+
+.required {
+    color: var(--danger);
+}
+
+.form-control,
+.form-select {
+    border: 1px solid var(--gray-light);
+    border-radius: 12px;
+    padding: 12px 16px;
+    transition: var(--transition);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: var(--danger);
+}
+
+.invalid-feedback {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.form-note {
+    font-size: 0.75rem;
+    color: var(--gray);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.form-note i {
+    color: var(--success);
+}
+
+/* FAQ Contact Section */
+.faq-contact-section {
+    padding: 80px 0;
+}
+
+/* Map Section */
+.map-section {
+    padding: 0 0 80px 0;
+}
+
+.map-wrapper {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-header {
+        padding: 100px 0 40px;
+    }
+    
+    .contact-section {
+        padding: 50px 0;
+    }
+    
+    .contact-info-card,
+    .contact-form-card {
+        padding: 1.5rem;
+    }
+    
+    .info-item {
+        gap: 0.75rem;
+    }
+    
+    .info-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .info-icon i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-info-card h2,
+    .contact-form-card h2 {
+        font-size: 1.2rem;
+    }
+    
+    .info-details h4 {
+        font-size: 0.9rem;
+    }
+    
+    .info-details p {
+        font-size: 0.75rem;
+    }
+}
+</style>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-circle">
+                    <img src="codecraft logo (2).jpeg" alt="Codecraft Logo">
+                </div>
+                <span class="brand-text">Codecraft</span>
             </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Spacer for fixed navbar -->
-  <div style="height: 80px;"></div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-  <div class="container form-container mt-5 pt-4">
-    <div class="card shadow-lg border-0">
-      <div class="card-body p-4 p-md-5">
-        <h2 class="text-center mb-4 fw-bold">Get in Touch</h2>
-
-        <div class="row g-5">
-          <!-- Left - Info -->
-          <div class="col-lg-5">
-            <h4 class="mb-4">Contact Information</h4>
-            <p class="mb-3"><i class="bi bi-geo-alt-fill me-2 text-primary"></i> Lagos, Nigeria</p>
-            <p class="mb-3"><i class="bi bi-whatsapp me-2 text-success"></i> +234 708 958 4607</p>
-            <p class="mb-4"><i class="bi bi-envelope-fill me-2 text-danger"></i> 
-              <a href="mailto:codecraft825@gmail.com">codecraft825@gmail.com</a>
-            </p>
-
-            <h5 class="mt-4 mb-3">Follow Us</h5>
-            <div class="d-flex gap-3">
-              <a href="https://www.facebook.com/profile.php?id=100084730695859" class="text-primary fs-4"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.instagram.com/codecraft331?igsh=MWNiejVqdW81MHQxZg==" class="text-danger fs-4"><i class="bi bi-instagram"></i></a>
-              <a href="https://wa.me/+2347089584607" class="text-success fs-4"><i class="bi bi-whatsapp"></i></a>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                </ul>
+                <a href="https://wa.me/2347089584607" class="btn btn-primary rounded-pill px-4 ms-lg-3">
+                    <i class="bi bi-whatsapp me-2"></i>Get in Touch
+                </a>
             </div>
-          </div>
-
-          <!-- Right - Form -->
-          <div class="col-lg-7">
-            <h4 class="mb-4">Send Us a Message</h4>
-            <form id="contact-form" novalidate>
-              <div class="mb-3">
-                <label for="name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="name" required minlength="2" placeholder="John Doe">
-                <div class="error-message">Please enter your name (min 2 characters)</div>
-              </div>
-
-              <div class="mb-3">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" required placeholder="you@example.com">
-                <div class="error-message">Please enter a valid email</div>
-              </div>
-
-              <div class="mb-4">
-                <label for="message" class="form-label">Your Message</label>
-                <textarea class="form-control" id="message" rows="5" required placeholder="How can we help you today?"></textarea>
-                <div class="error-message">Please write your message</div>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-lg w-100">
-                Send via WhatsApp →
-              </button>
-            </form>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
+    </nav>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white py-5 mt-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <h5 class="fw-bold">Quick Links</h5>
-          <ul class="list-unstyled">
-            <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
-            <li><a href="about.html" class="text-white text-decoration-none">About</a></li>
-            <li><a href="courses.html" class="text-white text-decoration-none">Courses</a></li>
-            <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
-          </ul>
+    <!-- Page Header -->
+    <section class="page-header contact-header">
+        <div class="container">
+            <div class="page-header-content" data-aos="fade-up">
+                <h1>Get in Touch</h1>
+                <p>Have questions? We're here to help you start your tech journey</p>
+            </div>
         </div>
-        <div class="col-md-4 mb-4">
-          <h5 class="fw-bold">Contact Info</h5>
-          <p class="mb-1">Email: codecraft825@gmail.com</p>
-          <p class="mb-1">Phone/WhatsApp: +234 708 958 4607</p>
-          <p>Address: 13 Onobanjo St, Lagos, Nigeria</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Contact Info -->
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="contact-info-card">
+                        <h2>Contact Information</h2>
+                        <p class="info-text">Reach out to us through any of these channels. We typically respond within 1-2 hours.</p>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <div class="info-details">
+                                <h4>Visit Us</h4>
+                                <p>13 Onobanjo Street,<br>Lagos, Nigeria</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-whatsapp"></i>
+                            </div>
+                            <div class="info-details">
+                                <h4>WhatsApp / Phone</h4>
+                                <p><a href="https://wa.me/2347089584607">+234 708 958 4607</a></p>
+                                <p>+234 705 692 2460</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <div class="info-details">
+                                <h4>Email Us</h4>
+                                <p><a href="mailto:codecraft825@gmail.com">codecraft825@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-clock-fill"></i>
+                            </div>
+                            <div class="info-details">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00 PM<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+
+                        <div class="social-section">
+                            <h4>Follow Us</h4>
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/profile.php?id=100084730695859" target="_blank"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/codecraft331" target="_blank"><i class="bi bi-instagram"></i></a>
+                                <a href="https://wa.me/2347089584607" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="contact-form-card">
+                        <h2>Send Us a Message</h2>
+                        <p class="form-text">Fill out the form below and we'll get back to you via WhatsApp.</p>
+                        
+                        <form id="contactForm" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Full Name <span class="required">*</span></label>
+                                    <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                                    <div class="invalid-feedback">Please enter your name (minimum 2 characters)</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+                                    <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                                    <div class="invalid-feedback">Please enter a valid email address</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="+234 801 234 5678">
+                                    <div class="invalid-feedback">Please enter a valid phone number</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="course" class="form-label">Course Interested In</label>
+                                    <select class="form-select" id="course">
+                                        <option value="">Select a course</option>
+                                        <option value="HTML & CSS Foundations">HTML & CSS Foundations (₦15,000)</option>
+                                        <option value="JavaScript Essentials">JavaScript Essentials (₦25,000)</option>
+                                        <option value="Bootstrap Essentials">Bootstrap Essentials (₦18,000)</option>
+                                        <option value="Modern CSS & Tailwind">Modern CSS & Tailwind (₦22,000)</option>
+                                        <option value="React & Modern Frontend">React & Modern Frontend (₦45,000)</option>
+                                        <option value="Full Frontend Developer Path">Full Frontend Developer Path (₦85,000)</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Your Message <span class="required">*</span></label>
+                                    <textarea class="form-control" id="message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+                                    <div class="invalid-feedback">Please enter your message</div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg w-100" id="submitBtn">
+                                        <i class="bi bi-whatsapp me-2"></i>Send via WhatsApp
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <p class="form-note mt-3">
+                            <i class="bi bi-shield-check"></i> We'll respond within 1-2 hours during business hours
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 mb-4">
-          <h5 class="fw-bold">Follow Us</h5>
-          <div class="d-flex gap-4 fs-4">
-            <a href="https://www.facebook.com/profile.php?id=100084730695859" class="text-white"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/codecraft331?igsh=MWNiejVqdW81MHQxZg==" class="text-white"><i class="bi bi-instagram"></i></a>
-            <a href="https://wa.me/+2347089584607" class="text-white"><i class="bi bi-whatsapp"></i></a>
-          </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-contact-section bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Quick answers to common questions</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="contactFaq">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    How do I enroll in a course?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#contactFaq">
+                                <div class="accordion-body">
+                                    Simply fill out the contact form above or message us directly on WhatsApp. We'll guide you through the enrollment process and payment options.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Do you offer payment plans?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#contactFaq">
+                                <div class="accordion-body">
+                                    Yes! We offer flexible payment plans for our courses. Contact us to discuss options that work with your budget.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Can I get a refund if I'm not satisfied?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#contactFaq">
+                                <div class="accordion-body">
+                                    We offer a 7-day money-back guarantee if you're not satisfied with the course. No questions asked.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Are the courses online or physical?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#contactFaq">
+                                <div class="accordion-body">
+                                    All our courses are delivered online with lifetime access. You can learn from anywhere at your own pace.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <hr class="border-secondary">
-      <p class="text-center small mb-0">© 2026 Codecraft. All rights reserved.</p>
-    </div>
-  </footer>
+    </section>
 
-  <script>
-    const form = document.getElementById('contact-form');
-    const whatsappNumber = "+2347089584607";
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-wrapper" data-aos="fade-up">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295314770757!3d6.527645295277166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1641234567890!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="350" 
+                    style="border:0; border-radius: 20px;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Ready to Start Your Tech Journey?</h2>
+                <p>Join hundreds of students already building their future with Codecraft</p>
+                <div class="cta-buttons">
+                    <a href="courses.html" class="btn btn-light btn-lg">
+                        Explore Courses <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                    <a href="https://wa.me/2347089584607" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-whatsapp me-2"></i>Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      // Reset previous validation
-      form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-logo">
+                        <div class="logo-circle">
+                            <img src="codecraft logo (2).jpeg" alt="Codecraft Logo">
+                        </div>
+                        <h3>Codecraft</h3>
+                    </div>
+                    <p>Building the next generation of Nigerian frontend developers — one clean line of code at a time.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100084730695859"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/codecraft331"><i class="bi bi-instagram"></i></a>
+                        <a href="https://wa.me/2347089584607"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="bi bi-geo-alt"></i> 13 Onobanjo Street, Lagos, Nigeria</li>
+                        <li><i class="bi bi-telephone"></i> +234 708 958 4607, 07056922460</li>
+                        <li><i class="bi bi-envelope"></i> codecraft825@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Newsletter</h4>
+                    <p>Get updates on new courses and tech tips</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit"><i class="bi bi-send"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Codecraft. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-      let isValid = true;
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 800, once: true, disable: window.innerWidth < 768 });
 
-      const name = document.getElementById('name');
-      if (!name.value.trim() || name.value.trim().length < 2) {
-        name.classList.add('is-invalid');
-        isValid = false;
-      }
+        // Contact Form Handler
+        const contactForm = document.getElementById('contactForm');
+        const whatsappNumber = '2347089584607';
 
-      const email = document.getElementById('email');
-      if (!email.checkValidity() || !email.value.includes('@')) {
-        email.classList.add('is-invalid');
-        isValid = false;
-      }
-
-      const message = document.getElementById('message');
-      if (!message.value.trim()) {
-        message.classList.add('is-invalid');
-        isValid = false;
-      }
-
-      if (!isValid) {
-        form.querySelector('.is-invalid').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-
-      // Build friendly WhatsApp message
-      const msg = 
-        `*New Inquiry from Codecraft Website*\n\n` +
-        `Name: ${name.value.trim()}\n` +
-        `Email: ${email.value.trim()}\n` +
-        `Message:\n${message.value.trim()}\n\n` +
-        `Sent: ${new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' })}`;
-
-      const encodedMsg = encodeURIComponent(msg);
-      const whatsappUrl = `https://wa.me/${+2347089584607}?text=${encodedMsg}`;
-
-      // Optional: save to localStorage
-      const inquiry = {
-        name: name.value.trim(),
-        email: email.value.trim(),
-        message: message.value.trim(),
-        timestamp: new Date().toISOString()
-      };
-      let inquiries = JSON.parse(localStorage.getItem('codecraft_inquiries') || '[]');
-      inquiries.push(inquiry);
-      localStorage.setItem('codecraft_inquiries', JSON.stringify(inquiries));
-
-      // Redirect
-      alert("Thank you! Redirecting to WhatsApp with your message...");
-      window.location.href = whatsappUrl;
-    });
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <!-- Your script.js if needed -->
-  <!-- <script src="script.js"></script> -->
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset validation
+            document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+            
+            let isValid = true;
+            
+            // Validate Name
+            const name = document.getElementById('name');
+            if (!name.value.trim() || name.value.trim().length < 2) {
+                name.classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            // Validate Email
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim() || !emailRegex.test(email.value)) {
+                email.classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            // Validate Phone (optional but format check)
+            const phone = document.getElementById('phone');
+            if (phone.value.trim() && !phone.value.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)) {
+                phone.classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            // Validate Message
+            const message = document.getElementById('message');
+            if (!message.value.trim() || message.value.trim().length < 10) {
+                message.classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                const firstInvalid = document.querySelector('.is-invalid');
+                if (firstInvalid) {
+                    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
+            
+            // Get course value
+            const course = document.getElementById('course');
+            const courseValue = course.value ? `\nCourse Interested In: ${course.value}` : '';
+            
+            // Build WhatsApp message
+            const msg = `*New Inquiry from Codecraft Website*\n\n` +
+                `*Name:* ${name.value.trim()}\n` +
+                `*Email:* ${email.value.trim()}\n` +
+                `*Phone:* ${phone.value.trim() || 'Not provided'}${courseValue}\n\n` +
+                `*Message:*\n${message.value.trim()}\n\n` +
+                `---\nSent via Codecraft Contact Form\nDate: ${new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' })}`;
+            
+            const encodedMsg = encodeURIComponent(msg);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMsg}`;
+            
+            // Show success message
+            Swal.fire({
+                icon: 'success',
+                title: 'Message Ready!',
+                text: 'You will be redirected to WhatsApp to send your message.',
+                confirmButtonColor: '#0d6efd',
+                confirmButtonText: 'Continue to WhatsApp',
+                showCancelButton: true,
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.open(whatsappUrl, '_blank');
+                    contactForm.reset();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
