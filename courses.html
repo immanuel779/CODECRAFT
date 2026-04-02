@@ -1,454 +1,840 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Courses - Codecraft | Frontend Development Training</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Codecraft Courses - Master frontend development with our practical, project-based courses. HTML, CSS, JavaScript, React, Bootstrap, and Full Stack training in Nigeria.">
+    <meta name="keywords" content="frontend courses Nigeria, learn HTML CSS Lagos, JavaScript training, React course, Bootstrap training, web development classes">
+    <meta name="author" content="Codecraft">
+    <title>Courses | Codecraft - Frontend Development Training in Nigeria</title>
 
-  <!-- Bootstrap 5.3 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <!-- Custom styles -->
-  <link rel="stylesheet" href="style.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <style>
-    :root {
-      --primary: #0d6efd;
-      --primary-dark: #0a58ca;
-      --dark: #212529;
-      --gray: #6c757d;
-    }
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    }
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    .navbar {
-      background-color: var(--dark);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-    }
-
-    .navbar-brand img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 2px solid var(--primary);
-      object-fit: contain;
-    }
-
-    .nav-link {
-      color: white !important;
-      font-weight: 500;
-    }
-
-    .nav-link:hover, .nav-link.active {
-      color: var(--primary) !important;
-    }
-
-    .course-hero {
-     background-image: url('coding.jpeg');
-     position: inherit;
-     background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: white;
-      padding: 8rem 0 6rem;
-      text-align: center;
-      min-height: 80vh;
-      height: 100vh;
-    }
-
-    .course-card {
-      border: none;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-      background: white;
-    }
-
-    .course-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-    }
-
-    .course-img {
-      height: 220px;
-      object-fit: cover;
-    }
-
-    .badge-level {
-      font-size: 0.9rem;
-      padding: 0.5em 1em;
-    }
-
-    .price-tag {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .syllabus-toggle[aria-expanded="true"] .bi-chevron-down {
-      transform: rotate(180deg);
-    }
-
-    .feature-list li {
-      margin-bottom: 0.75rem;
-    }
-
-    footer {
-      background: #111;
-      color: #ccc;
-    }
-
-    footer a:hover {
-      color: var(--primary);
-    }
-  </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+<style>
+  /* ==================== COURSES PAGE STYLES ==================== */
+
+/* Courses Header */
+.courses-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 120px 0 60px;
+    text-align: center;
+    color: white;
+}
+
+.header-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.header-stats .stat {
+    text-align: center;
+}
+
+.header-stats .stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.header-stats .stat-label {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* Categories Section */
+.categories-section {
+    padding: 30px 0;
+    background: var(--light);
+    position: sticky;
+    top: 70px;
+    z-index: 99;
+}
+
+.categories-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    padding: 10px 24px;
+    border: 2px solid var(--primary);
+    background: transparent;
+    color: var(--primary);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* Courses Section */
+.courses-section {
+    padding: 60px 0 80px;
+}
+
+.course-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: var(--transition);
+    height: 100%;
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.course-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.course-card:hover .course-image img {
+    transform: scale(1.05);
+}
+
+.course-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: white;
+}
+
+.course-badge.beginner { background: #28a745; }
+.course-badge.intermediate { background: #ffc107; color: #333; }
+.course-badge.advanced { background: #dc3545; }
+.course-badge.bundle { background: #6f42c1; }
+
+.course-body {
+    padding: 1.5rem;
+}
+
+.course-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    color: var(--gray);
+    flex-wrap: wrap;
+}
+
+.course-meta i {
+    margin-right: 4px;
+}
+
+.course-body h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.course-body p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+.course-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature {
+    font-size: 0.75rem;
+    background: rgba(13, 110, 253, 0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+    color: var(--primary);
+}
+
+.feature i {
+    font-size: 0.7rem;
+    margin-right: 4px;
+}
+
+.course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-light);
+}
+
+.price-amount {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.price-note {
+    font-size: 0.7rem;
+    color: var(--gray);
+    display: block;
+}
+
+.price-old {
+    font-size: 0.85rem;
+    text-decoration: line-through;
+    color: var(--gray);
+    margin-left: 8px;
+}
+
+/* Bundle Card */
+.bundle-card {
+    border: 2px solid var(--primary);
+    position: relative;
+}
+
+.banner {
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background: var(--primary);
+    color: white;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    font-size: 0.7rem;
+    font-weight: 600;
+    z-index: 10;
+}
+
+/* Included Section */
+.included-section {
+    padding: 80px 0;
+}
+
+.included-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 20px;
+    background: white;
+    transition: var(--transition);
+    height: 100%;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-light);
+}
+
+.included-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+.included-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.included-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.included-card p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin: 0;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 80px 0;
+    background: var(--light);
+}
+
+.accordion-item {
+    border: 1px solid var(--gray-light);
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.accordion-button {
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+}
+
+.accordion-button:not(.collapsed) {
+    background: var(--primary);
+    color: white;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .courses-header {
+        padding: 100px 0 40px;
+    }
+    
+    .header-stats {
+        gap: 1.5rem;
+    }
+    
+    .categories-section {
+        top: 60px;
+    }
+    
+    .category-btn {
+        padding: 6px 16px;
+        font-size: 0.8rem;
+    }
+    
+    .course-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .banner {
+        font-size: 0.6rem;
+        padding: 4px 30px;
+        top: 15px;
+        right: -25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .course-meta {
+        gap: 0.75rem;
+    }
+    
+    .course-features {
+        gap: 0.4rem;
+    }
+    
+    .feature {
+        font-size: 0.65rem;
+        padding: 3px 8px;
+    }
+    
+    .price-amount {
+        font-size: 1.2rem;
+    }
+}
+</style>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid px-4 px-lg-5">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="codecraft logo (2).jpeg" alt="Codecraft Logo">
-        <span class="ms-2 fw-bold text-white">Codecraft</span>
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-        <ul class="navbar-nav align-items-center gap-3 gap-lg-4">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link active" href="courses.html">Courses</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          <li class="nav-item ms-lg-2">
-            <a class="btn btn-outline-primary rounded-pill px-4 fw-medium" href="https://wa.me/+2347089584607">
-              Get in Touch
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-circle">
+                    <img src="codecraft logo (2).jpeg" alt="Codecraft Logo">
+                </div>
+                <span class="brand-text">Codecraft</span>
             </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Course Hero -->
-  <section class="course-hero">
-    <div class="container">
-      <h1 class="display-4 fw-bold mb-4">Master Frontend Development</h1>
-      <p class="lead fs-4 mb-4 opacity-90">
-        Practical, project-based courses • Lifetime access • 24/7 WhatsApp support • Built for Nigerians ready to land jobs in 2026
-      </p>
-      <a href="courses.html" class="btn btn-light btn-lg px-5 py-3 fw-bold shadow-lg">
-        Explore Courses
-      </a>
-    </div>
-  </section>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-  <!-- Courses Grid -->
-  <section id="courses" class="py-5 bg-light">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="display-5 fw-bold">Our Frontend Courses</h2>
-        <p class="lead text-muted">From zero to job-ready — choose your path</p>
-      </div>
-
-      <div class="row g-4 g-lg-5">
-        <!-- Course 1: HTML & CSS Foundations -->
-        <div class="col-lg-4 col-md-6">
-          <div class="course-card h-100">
-            <img src="html.jpeg" class="course-img card-img-top" alt="HTML & CSS">
-            <div class="card-body p-4">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge bg-success badge-level">Beginner</span>
-                <span class="badge bg-primary badge-level">4-6 Weeks</span>
-              </div>
-              <h4 class="card-title fw-bold mb-3">HTML & CSS Foundations</h4>
-              <p class="text-muted mb-4">
-                Build beautiful, responsive websites from scratch — the perfect starting point.
-              </p>
-
-              <div class="mb-4">
-                <h6 class="fw-bold">What You'll Learn:</h6>
-                <ul class="list-unstyled feature-list small">
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Semantic HTML5</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>CSS Flexbox & Grid</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Responsive Design & Media Queries</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Modern Styling Best Practices</li>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <span class="price-tag">₦15,000</span>
-                  <small class="text-muted">/ one-time</small>
-                </div>
-                <a href="https://wa.me/+2347089584607?text=I'm%20interested%20in%20HTML%20%26%20CSS%20Foundations" 
-                   class="btn btn-primary px-4">Enroll Now</a>
-              </div>
-              <div class="mt-3 small text-center text-success fw-medium">
-                Lifetime Access + WhatsApp Support + 3 Projects
-              </div>
+                <a href="https://wa.me/2347089584607" class="btn btn-primary rounded-pill px-4 ms-lg-3">
+                    <i class="bi bi-whatsapp me-2"></i>Get in Touch
+                </a>
             </div>
-          </div>
         </div>
+    </nav>
 
-        <!-- Course 2: JavaScript Essentials -->
-        <div class="col-lg-4 col-md-6">
-          <div class="course-card h-100">
-            <img src="javascript.jpeg" class="course-img card-img-top" alt="JavaScript">
-            <div class="card-body p-4">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge bg-warning text-dark badge-level">Beginner → Intermediate</span>
-                <span class="badge bg-primary badge-level">6-8 Weeks</span>
-              </div>
-              <h4 class="card-title fw-bold mb-3">JavaScript Essentials</h4>
-              <p class="text-muted mb-4">
-                Add interactivity, logic & modern features — turn static pages into dynamic apps.
-              </p>
-
-              <div class="mb-4">
-                <h6 class="fw-bold">Key Topics:</h6>
-                <ul class="list-unstyled feature-list small">
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>ES6+ (arrow functions, destructuring, modules)</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>DOM Manipulation & Events</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Asynchronous JS (Promises, async/await, fetch)</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>API Consumption & Dynamic Content</li>
-                </ul>
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <span class="price-tag">₦25,000</span>
-                  <small class="text-muted">/ one-time</small>
+    <!-- Page Header -->
+    <section class="page-header courses-header">
+        <div class="container">
+            <div class="page-header-content" data-aos="fade-up">
+                <h1>Our Courses</h1>
+                <p>Master frontend development with practical, project-based training</p>
+                <div class="header-stats">
+                    <div class="stat">
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label">Expert Courses</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Active Students</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Available</div>
+                    </div>
                 </div>
-                <a href="https://wa.me/+2347089584607?text=I'm%20interested%20in%20JavaScript%20Essentials" 
-                   class="btn btn-primary px-4">Enroll Now</a>
-              </div>
-              <div class="mt-3 small text-center text-success fw-medium">
-                Lifetime Access + Projects + Community Support
-              </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Course 3: Modern CSS + Tailwind -->
-        <div class="col-lg-4 col-md-6">
-          <div class="course-card h-100">
-            <img src="tailwind.jpeg" class="course-img card-img-top" alt="Tailwind CSS">
-            <div class="card-body p-4">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge bg-info text-dark badge-level">Intermediate</span>
-                <span class="badge bg-primary badge-level">4-6 Weeks</span>
-              </div>
-              <h4 class="card-title fw-bold mb-3">Modern CSS & Tailwind Mastery</h4>
-              <p class="text-muted mb-4">
-                Build faster with utility-first CSS — the tool top companies use in 2026.
-              </p>
+    <!-- Course Categories -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="categories-wrapper" data-aos="fade-up">
+                <button class="category-btn active" data-category="all">All Courses</button>
+                <button class="category-btn" data-category="beginner">Beginner</button>
+                <button class="category-btn" data-category="intermediate">Intermediate</button>
+                <button class="category-btn" data-category="advanced">Advanced</button>
+                <button class="category-btn" data-category="bundle">Bundle</button>
+            </div>
+        </div>
+    </section>
 
-              <div class="mb-4">
-                <h6 class="fw-bold">Highlights:</h6>
-                <ul class="list-unstyled feature-list small">
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Advanced CSS (Custom Properties, Animations)</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Tailwind CSS v4 Fundamentals</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Responsive Design Systems</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Component Libraries & Best Practices</li>
-                </ul>
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <span class="price-tag">₦22,000</span>
-                  <small class="text-muted">/ one-time</small>
+    <!-- Courses Grid -->
+    <section class="courses-section">
+        <div class="container">
+            <div class="row g-4" id="coursesGrid">
+                <!-- Course 1: HTML & CSS Foundations -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100" data-category="beginner">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="html.jpeg" alt="HTML & CSS Foundations">
+                            <span class="course-badge beginner">Beginner</span>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-meta">
+                                <span><i class="bi bi-clock"></i> 4-6 Weeks</span>
+                                <span><i class="bi bi-play-circle"></i> 12 Lessons</span>
+                                <span><i class="bi bi-folder2"></i> 3 Projects</span>
+                            </div>
+                            <h3>HTML & CSS Foundations</h3>
+                            <p>Build beautiful, responsive websites from scratch — the perfect starting point for your coding journey.</p>
+                            <div class="course-features">
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Semantic HTML5</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> CSS Flexbox & Grid</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Responsive Design</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Modern Styling Best Practices</div>
+                            </div>
+                            <div class="course-footer">
+                                <div class="price">
+                                    <span class="price-amount">₦15,000</span>
+                                    <span class="price-note">one-time payment</span>
+                                </div>
+                                <a href="https://wa.me/2347089584607?text=I'm%20interested%20in%20HTML%20%26%20CSS%20Foundations%20course" class="btn btn-primary btn-sm">Enroll Now <i class="bi bi-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <a href="https://wa.me/+2347089584607?text=I'm%20interested%20in%20Modern%20CSS%20%26%20Tailwind" 
-                   class="btn btn-primary px-4">Enroll Now</a>
-              </div>
-              <div class="mt-3 small text-center text-success fw-medium">
-                Lifetime Access + Real-World Projects
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Course 4: React & Modern Frontend -->
-        <div class="col-lg-4 col-md-6">
-          <div class="course-card h-100">
-            <img src="React JS Training in Chandigarh.jpeg" class="course-img card-img-top" alt="React" onerror="this.src='https://via.placeholder.com/400x220?text=React'">
-            <div class="card-body p-4">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge bg-danger badge-level">Advanced</span>
-                <span class="badge bg-primary badge-level">8-10 Weeks</span>
-              </div>
-              <h4 class="card-title fw-bold mb-3">React & Modern Frontend</h4>
-              <p class="text-muted mb-4">
-                Build dynamic, scalable apps — the #1 skill for frontend jobs in 2026.
-              </p>
-
-              <div class="mb-4">
-                <h6 class="fw-bold">Core Skills:</h6>
-                <ul class="list-unstyled feature-list small">
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>React Hooks & Components</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>State Management (Context + Zustand)</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Routing (React Router), API Calls</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Vite + Tailwind + Deployment (Vercel)</li>
-                </ul>
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <span class="price-tag">₦30,000</span>
-                  <small class="text-muted">/ one-time</small>
+                <!-- Course 2: JavaScript Essentials -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200" data-category="intermediate">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="javascript.jpeg" alt="JavaScript Essentials">
+                            <span class="course-badge intermediate">Intermediate</span>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-meta">
+                                <span><i class="bi bi-clock"></i> 6-8 Weeks</span>
+                                <span><i class="bi bi-play-circle"></i> 18 Lessons</span>
+                                <span><i class="bi bi-folder2"></i> 4 Projects</span>
+                            </div>
+                            <h3>JavaScript Essentials</h3>
+                            <p>Add interactivity, logic & modern features — turn static pages into dynamic web applications.</p>
+                            <div class="course-features">
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> ES6+ Features</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> DOM Manipulation & Events</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Asynchronous JavaScript</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> API Consumption & Fetch</div>
+                            </div>
+                            <div class="course-footer">
+                                <div class="price">
+                                    <span class="price-amount">₦25,000</span>
+                                    <span class="price-note">one-time payment</span>
+                                </div>
+                                <a href="https://wa.me/2347089584607?text=I'm%20interested%20in%20JavaScript%20Essentials%20course" class="btn btn-primary btn-sm">Enroll Now <i class="bi bi-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <a href="https://wa.me/+2347089584607?text=I'm%20interested%20in%20React%20%26%20Modern%20Frontend" 
-                   class="btn btn-primary px-4">Enroll Now</a>
-              </div>
-              <div class="mt-3 small text-center text-success fw-medium">
-                Lifetime Access + 5+ Portfolio Projects + Support
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-lg-4 col-md-6">
-  <div class="course-card h-100">
-    <img src="Bootstrap.jpeg" class="course-img card-img-top" alt="Bootstrap">
-    <div class="card-body p-4">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <span class="badge bg-warning text-dark badge-level">Beginner → Intermediate</span>
-        <span class="badge bg-primary badge-level">6-8 Weeks</span>
-      </div>
-      <h4 class="card-title fw-bold mb-3">Bootstrap Essentials</h4>
-      <p class="text-muted mb-4">
-        Build beautiful, responsive, mobile-first websites fast — no custom CSS headaches.
-      </p>
-
-      <div class="mb-4">
-        <h6 class="fw-bold">Key Topics:</h6>
-        <ul class="list-unstyled feature-list small">
-          <li><i class="bi bi-check-circle-fill text-success me-2"></i>Bootstrap 5 Grid System & Responsive Layouts</li>
-          <li><i class="bi bi-check-circle-fill text-success me-2"></i>Utility Classes (Spacing, Colors, Display, Flex & More)</li>
-          <li><i class="bi bi-check-circle-fill text-success me-2"></i>Core Components (Buttons, Cards, Navbar, Modals)</li>
-          <li><i class="bi bi-check-circle-fill text-success me-2"></i>Forms, Tables, Alerts, Typography & Icons</li>
-        </ul>
-      </div>
-
-      <div class="d-flex justify-content-between align-items-center">
-        <div>
-          <span class="price-tag">₦20,000</span>
-          <small class="text-muted">/ one-time</small>
-        </div>
-        <a href="https://wa.me/+2347089584607?text=I'm%20interested%20in%20Bootstrap%20Essentials" 
-           class="btn btn-primary px-4">Enroll Now</a>
-      </div>
-      <div class="mt-3 small text-center text-success fw-medium">
-        Lifetime Access + Projects + Community Support
-      </div>
-    </div>
-  </div>
-</div>
-
-        <!-- Bundle / Full Path -->
-        <div class="col-lg-4 col-md-6">
-          <div class="course-card h-100 border-primary border-2 position-relative">
-            <div class="position-absolute top-0 end-0 badge bg-warning text-dark m-3 fw-bold">Best Value</div>
-            <img src="fontend.jpeg" class="course-img card-img-top" alt="Full Frontend Path" onerror="this.src='https://via.placeholder.com/400x220?text=Full+Path'">
-            <div class="card-body p-4">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge bg-dark badge-level">Complete Path</span>
-                <span class="badge bg-primary badge-level">4-6 Months</span>
-              </div>
-              <h4 class="card-title fw-bold mb-3">Full Frontend Developer Path</h4>
-              <p class="text-muted mb-4">
-                All courses bundled — HTML/CSS → JS → Tailwind → React → Portfolio + Job Prep.
-              </p>
-
-              <div class="mb-4">
-                <h6 class="fw-bold">Includes Everything Above +:</h6>
-                <ul class="list-unstyled feature-list small">
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Portfolio Website Project</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Git & GitHub Workflow</li>
-                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Interview Prep & CV Review</li>
-                </ul>
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <span class="price-tag">₦85,000</span>
-                  <small class="text-muted text-decoration-line-through ms-2">₦107,000</small>
+                <!-- Course 3: Bootstrap Essentials -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300" data-category="beginner">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="Bootstrap.jpeg" alt="Bootstrap Essentials">
+                            <span class="course-badge beginner">Beginner</span>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-meta">
+                                <span><i class="bi bi-clock"></i> 4-6 Weeks</span>
+                                <span><i class="bi bi-play-circle"></i> 10 Lessons</span>
+                                <span><i class="bi bi-folder2"></i> 3 Projects</span>
+                            </div>
+                            <h3>Bootstrap Essentials</h3>
+                            <p>Build beautiful, responsive, mobile-first websites fast — no custom CSS headaches.</p>
+                            <div class="course-features">
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Bootstrap 5 Grid System</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Utility Classes & Components</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Navbar, Cards, Modals</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Forms & Typography</div>
+                            </div>
+                            <div class="course-footer">
+                                <div class="price">
+                                    <span class="price-amount">₦18,000</span>
+                                    <span class="price-note">one-time payment</span>
+                                </div>
+                                <a href="https://wa.me/2347089584607?text=I'm%20interested%20in%20Bootstrap%20Essentials%20course" class="btn btn-primary btn-sm">Enroll Now <i class="bi bi-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <a href="https://wa.me/+2347089584607?text=I'm%20interested%20in%20Full%20Frontend%20Developer%20Path" 
-                   class="btn btn-primary px-4">Enroll Now</a>
-              </div>
-              <div class="mt-3 small text-center text-success fw-medium">
-                Save 20% • Lifetime Access • Priority Support
-              </div>
+
+                <!-- Course 4: Modern CSS & Tailwind -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400" data-category="intermediate">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="tailwind.jpeg" alt="Modern CSS & Tailwind">
+                            <span class="course-badge intermediate">Intermediate</span>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-meta">
+                                <span><i class="bi bi-clock"></i> 4-6 Weeks</span>
+                                <span><i class="bi bi-play-circle"></i> 12 Lessons</span>
+                                <span><i class="bi bi-folder2"></i> 3 Projects</span>
+                            </div>
+                            <h3>Modern CSS & Tailwind Mastery</h3>
+                            <p>Build faster with utility-first CSS — the tool top companies are using in 2026.</p>
+                            <div class="course-features">
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Advanced CSS & Animations</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Tailwind CSS v4 Fundamentals</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Responsive Design Systems</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Component Best Practices</div>
+                            </div>
+                            <div class="course-footer">
+                                <div class="price">
+                                    <span class="price-amount">₦22,000</span>
+                                    <span class="price-note">one-time payment</span>
+                                </div>
+                                <a href="https://wa.me/2347089584607?text=I'm%20interested%20in%20Modern%20CSS%20%26%20Tailwind%20course" class="btn btn-primary btn-sm">Enroll Now <i class="bi bi-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 5: React & Modern Frontend -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500" data-category="advanced">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="React JS Training in Chandigarh.jpeg" alt="React & Modern Frontend">
+                            <span class="course-badge advanced">Advanced</span>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-meta">
+                                <span><i class="bi bi-clock"></i> 8-10 Weeks</span>
+                                <span><i class="bi bi-play-circle"></i> 24 Lessons</span>
+                                <span><i class="bi bi-folder2"></i> 5 Projects</span>
+                            </div>
+                            <h3>React & Modern Frontend</h3>
+                            <p>Build dynamic, scalable apps — the #1 skill for frontend jobs in 2026.</p>
+                            <div class="course-features">
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> React Hooks & Components</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> State Management (Context + Zustand)</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> React Router & API Calls</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Vite + Deployment (Vercel)</div>
+                            </div>
+                            <div class="course-footer">
+                                <div class="price">
+                                    <span class="price-amount">₦45,000</span>
+                                    <span class="price-note">one-time payment</span>
+                                </div>
+                                <a href="https://wa.me/2347089584607?text=I'm%20interested%20in%20React%20%26%20Modern%20Frontend%20course" class="btn btn-primary btn-sm">Enroll Now <i class="bi bi-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 6: Full Frontend Developer Path (Bundle) -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600" data-category="bundle">
+                    <div class="course-card bundle-card">
+                        <div class="banner">Best Value</div>
+                        <div class="course-image">
+                            <img src="WhatsApp Image 2026-04-02 at 11.29.20.jpeg" alt="Full Frontend Developer Path">
+                            <span class="course-badge bundle">Complete Path</span>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-meta">
+                                <span><i class="bi bi-clock"></i> 4-6 Months</span>
+                                <span><i class="bi bi-play-circle"></i> 70+ Lessons</span>
+                                <span><i class="bi bi-folder2"></i> 15+ Projects</span>
+                            </div>
+                            <h3>Full Frontend Developer Path</h3>
+                            <p>All courses bundled — HTML/CSS → JavaScript → Tailwind → React → Portfolio + Job Prep.</p>
+                            <div class="course-features">
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> All 5 Courses Included</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Portfolio Website Project</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Git & GitHub Workflow</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Interview Prep & CV Review</div>
+                                <div class="feature"><i class="bi bi-check-circle-fill"></i> Priority Support</div>
+                            </div>
+                            <div class="course-footer">
+                                <div class="price">
+                                    <span class="price-amount">₦85,000</span>
+                                    <span class="price-old">₦107,000</span>
+                                    <span class="price-note">Save 20%</span>
+                                </div>
+                                <a href="https://wa.me/2347089584607?text=I'm%20interested%20in%20Full%20Frontend%20Developer%20Path%20bundle" class="btn btn-primary btn-sm">Enroll Now <i class="bi bi-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </section>
 
-      <div class="text-center mt-5 pt-4">
-        <p class="lead mb-4">Not sure where to start? Chat with us for free guidance!</p>
-        <a href="https://wa.me/+2347089584607?text=Hi%20Codecraft!%20I%20need%20help%20choosing%20a%20course." 
-           class="btn btn-outline-primary btn-lg px-5 py-3">
-          <i class="bi bi-whatsapp me-2"></i> Free Course Consultation
-        </a>
-      </div>
-    </div>
-  </section>
+    <!-- What's Included Section -->
+    <section class="included-section bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">What's Included in Every Course</h2>
+                <p class="section-subtitle">We provide everything you need to succeed</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="included-card">
+                        <i class="bi bi-infinity"></i>
+                        <h3>Lifetime Access</h3>
+                        <p>Get lifetime access to all course materials, including future updates.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="included-card">
+                        <i class="bi bi-whatsapp"></i>
+                        <h3>24/7 Support</h3>
+                        <p>Direct WhatsApp support from instructors whenever you need help.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="included-card">
+                        <i class="bi bi-folder-check"></i>
+                        <h3>Real Projects</h3>
+                        <p>Build a portfolio of real projects to show potential employers.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="included-card">
+                        <i class="bi bi-award"></i>
+                        <h3>Certificate</h3>
+                        <p>Earn a certificate of completion for every course you finish.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer (same as previous) -->
-  <footer class="bg-dark text-white py-5">
-    <div class="container px-4 px-lg-5">
-      <div class="row g-5">
-        <div class="col-md-4">
-          <h5 class="fw-bold mb-4">Codecraft</h5>
-          <p class="text-muted">Practical frontend training for Nigerians — start today, build tomorrow.</p>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Got questions? We've got answers</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    How do I access the courses?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    After enrollment, you'll receive access to our private learning portal and WhatsApp group. All course materials are available immediately and can be accessed anytime, anywhere.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Do I get a certificate after completion?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes! You'll receive a verifiable certificate of completion for each course, which you can add to your LinkedIn profile and CV.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    What if I need help while studying?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    You'll have 24/7 access to our active WhatsApp community where instructors and fellow students are always ready to help. No question is too small!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    How long do I have access to the course?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Lifetime access! You can learn at your own pace and revisit the materials anytime, even after completing the course.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    Do you offer payment plans?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes! We offer flexible payment plans. Contact us on WhatsApp to discuss options that work for your budget.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-2">
-          <h5 class="fw-bold mb-4">Links</h5>
-          <ul class="list-unstyled">
-            <li><a href="index.html" class="text-reset">Home</a></li>
-            <li><a href="about.html" class="text-reset">About</a></li>
-            <li><a href="courses.html" class="text-reset">Courses</a></li>
-            <li><a href="contact.html" class="text-reset">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <h5 class="fw-bold mb-4">Contact</h5>
-          <ul class="list-unstyled">
-            <li><i class="bi bi-envelope me-2"></i> codecraft825@gmail.com</li>
-            <li><i class="bi bi-telephone me-2"></i> +234 708 958 4607</li>
-            <li><i class="bi bi-geo-alt me-2"></i> Lagos, Nigeria</li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <h5 class="fw-bold mb-4">Follow</h5>
-          <div class="d-flex gap-4">
-            <a href="https://www.facebook.com/profile.php?id=100084730695859" class="fs-4 text-white"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/codecraft331?igsh=MWNiejVqdW81MHQxZg==" class="fs-4 text-white"><i class="bi bi-instagram"></i></a>
-            <a href="https://wa.me/+2347089584607" class="fs-4 text-white"><i class="bi bi-whatsapp"></i></a>
-          </div>
-        </div>
-      </div>
-      <hr class="border-secondary my-4">
-      <div class="text-center small">
-        © 2026 Codecraft. All rights reserved.
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Not Sure Which Course is Right for You?</h2>
+                <p>Chat with us for free guidance — we'll help you choose the perfect learning path</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/2347089584607" class="btn btn-light btn-lg">
+                        <i class="bi bi-whatsapp me-2"></i>Free Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-logo">
+                        <div class="logo-circle">
+                            <img src="codecraft logo (2).jpeg" alt="Codecraft Logo">
+                        </div>
+                        <h3>Codecraft</h3>
+                    </div>
+                    <p>Building the next generation of Nigerian frontend developers — one clean line of code at a time.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100084730695859"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/codecraft331"><i class="bi bi-instagram"></i></a>
+                        <a href="https://wa.me/2347089584607"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="bi bi-geo-alt"></i> 13 Onobanjo Street, Lagos, Nigeria</li>
+                        <li><i class="bi bi-telephone"></i> +234 708 958 4607, +234 705 692 2460</li>
+                        <li><i class="bi bi-envelope"></i> codecraft825@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Newsletter</h4>
+                    <p>Get updates on new courses and tech tips</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit"><i class="bi bi-send"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Codecraft. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Course Category Filter
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const courseCards = document.querySelectorAll('#coursesGrid .col-lg-4');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter courses
+                const category = btn.dataset.category;
+                courseCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
-
 </html>
